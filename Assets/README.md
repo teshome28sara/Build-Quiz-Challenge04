@@ -23,7 +23,10 @@ THEN the game is over.
 ✔️WHEN the game is over
 THEN  the participant  can save their  initials and  score. 
 
-### Screenshot 
+### Deployed Site URL
+[LQuiz Website]( https://teshome28sara.github.io/Build-Quiz-Challenge04/)
+
+#### Screenshot 
 
 ![Screenshot of quiz game challenge homepage](/Assets/homework-04.png "Quiz challenge home screen")
 
