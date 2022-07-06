@@ -10,18 +10,19 @@ var btnB = document.querySelector("#AnswerB") ;
 var btnC = document.querySelector("#AnswerC");
 var firstQuestion = document.querySelector("#firstQuestion");
 var divEl = document.querySelector("#container");
+  // var score = "";
+  var scoreBtn = document.querySelector("#score-btn");
 
-var scoreBtn = document.querySelector("#score-btn");
+ scoreBtn.addEventListener("click" , function(){
+    var initals = document.querySelector("#score-form").value
+    // score = score+1;
+   timeLeft = timeLeft+1;
+  localStorage.setItem("high-score",JSON.stringify( {initals, timeLeft }))
+  window.location.href = "./highscore.html"
+ })
 
-scoreBtn.addEventListener("click" , function(){
- var initals = document.querySelector("#score-form").value
- timeLeft = timeLeft+1;
-localStorage.setItem("high-score",JSON.stringify( {initals, timeLeft }))
-window.location.href = "./highscore.html"
-})
 
-
-var chosenAnswer;
+// var chosenAnswer;
 var form = document.querySelector("#record");
 
 // create an array  object for questions
@@ -50,18 +51,10 @@ var questions =[
    correct: "Greenwood Shark"
 },
 {
- name: "what is the small in the world?",
+ name: "what is the bsmallest  bird in the world?",
  answers:["Bluejay", "Mocking bird"],
  correct: "Bee Hummingbird"
-
-},
-{
-    name: "what is the oldest continent in the world?",
-    answers:["Asia", "Antarctica"],
-    correct: "Australia"
-    
-   } 
-
+}
 ];
 
 
@@ -70,7 +63,18 @@ var questions =[
 
 //  Create a function to display question
 
-function displayQuestion(){
+function displayQuestion(){ 
+
+  //  var scoreBtn = document.querySelector("#score-btn");
+ 
+
+//  scoreBtn.addEventListener("click" , function(){
+//    var initals = document.querySelector("#score-form").value
+//   score = score+1;
+//   localStorage.setItem("high-score",JSON.stringify( {initals,score }))
+//   window.location.href = "./highscore.html"
+//  })
+
 
   var curruntQuestion = questions[questionPosition]; 
 
@@ -100,9 +104,14 @@ firstQuestion.textContent = curruntQuestion.name
  
  btnStart.style.visibility = "hidden";
    welcome.style.visibility = "hidden";
- divEl.style.visibility = "visible";
+ divEl.style.visibility = "visible"; 
+ var score = "";
+
+ 
  btnA.addEventListener("click" , function() {
    timeLeft -=10;
+  
+   
  })
     
    btnB.addEventListener("click" , function(){
@@ -110,16 +119,18 @@ firstQuestion.textContent = curruntQuestion.name
   
     
        timeLeft -=10;
+       
+      
 
       
  
       });
 
-      var score = 0;
+      //  var score = 0;
 
-      btnC.addEventListener("click" , function(){
-       score++;
-      });
+       btnC.addEventListener("click" , function(){
+        
+       });
 
      
  
@@ -183,6 +194,7 @@ function nextQuestion(){
  function endGame(){
   divEl.textContent = "";
   form.style.visibility = "visible";
+  timerEl.textContent = ""
  
  }
  
